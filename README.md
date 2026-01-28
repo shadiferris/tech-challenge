@@ -10,10 +10,13 @@
 
 ## Summary
 
-○   What else you would do with your website, and how you would go about doing it if you had more time?
+***What else you would do with your website, and how you would go about doing it if you had more time?***
 
-○   Alternative solutions that you could have taken but didn’t and explain why?
 
-○   What would be required to make this a production grade website that would be developed by various development teams. The more detail, the better?
+
+
+***Alternative solutions that you could have taken but didn’t and explain why?***
+
+***What would be required to make this a production grade website that would be developed by various development teams. The more detail, the better?***
 
 
