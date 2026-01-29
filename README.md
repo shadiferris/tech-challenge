@@ -12,7 +12,9 @@
 
 ***What else you would do with your website, and how you would go about doing it if you had more time?***
 
+What is the purpose of the website and who are the end users? The design and usability play an important role in ensuring the site meets the needs of its users. I would improve the overall aesthetics and usability by introducing a more pleasing layout, well-organised menus and headers, and integrate with enterprise search bar that could retrieve results from a secure data source. The website could also be integrated with a database to present content dynamically.
 
+If I had more time, I would focus my efforts on the design phase to plan the infrastructure, layout, and usability. Once this was complete, I would begin building a minimum viable product MVP, using technologies such as HTML, PHP or Python, and SQL. I would continuously monitor the website’s performance during the build and deployment phases. Following deployment, I would iterate and release further enhancements.
 
 
 ***Alternative solutions that you could have taken but didn’t and explain why?***
