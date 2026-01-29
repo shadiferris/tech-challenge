@@ -19,6 +19,16 @@ If I had more time, I would focus my efforts on the design phase to plan the inf
 
 ***Alternative solutions that you could have taken but didn’t and explain why?***
 
+There are many different approaches to setting up a website. For this attempt, I enabled AWS s3 static website hosting to expose the index.html file publicly. With more time, other approaches could have been considered, including:
+
+Option 2: 
+Register a new domain name using Amazon Roue53, deploy a web server (for example, Nginx, Apache Tomcat, or Apache HTTP Server) on an AWS EC2 instance within a public subnet, and configure security groups to allow SSH (port 22) and HTTP (port 80) access from the internet. This would also include configuring operating system and web server updates, deploying the website source code, setting up DNS records, and performing end-to-end testing.
+
+Option 3:
+Provision AWS infrastructure including a VPC, subnets, route tables, and an internet gateway for an EKS cluster. Configure security groups to allow HTTP traffic on port 80, deploy EC2 node groups or Fargate in a public subnet, and create a Dockerfile with the required web server image. This would involve copying HTML files into the appropriate directory, exposing port 80 in the container, building and pushing the image to AWS ECR, and creating Kubernetes Pod and Service YAML manifests. The Service could be configured as a NodePort or LoadBalancer, with port 80 exposed.
+
+Based on the technical requirements, I chose the AWS S3 approach over the other options as it required the least time, effort, and cost. Given the three-hour time constraint for this challenge, the other options would have taken significantly longer due to the number of steps involved to provision infrastructure, setup and testing. Option 2 could be completed more efficiently and at a lower cost compared to Option 3. Option 3 would require more effort and incur higher costs, however,it could be far more scalable in the long run compared to Options 1 and 2.
+
 ***What would be required to make this a production grade website that would be developed by various development teams. The more detail, the better?***
 
 
