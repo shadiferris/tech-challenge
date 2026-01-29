@@ -31,4 +31,27 @@ Based on the technical requirements, I chose the AWS S3 approach over the other 
 
 ***What would be required to make this a production grade website that would be developed by various development teams. The more detail, the better?***
 
+To make the website more production-grade, while also allowing development teams the autonomy to build, deploy, and test safely, I would begin at the AWS account management level by setting up an AWS Landing zone architecture. This would enable teams to build, deploy, and test workloads in isolation, while providing the business with oversight of billing, security controls, and resource limitations.
+
+Following Landing zone setup, the target state of the website would include a multi-availability zone AWS EKS Cluster, leveraging Kubernetes orchestration, scaling, and container management capabilities by default. All infrastructure provisioning would be implemented using Infrastructure as Code (e.g. Terraform) to ensure services such as VPCs, subnets, route tables, NAT gateways, internet gateways, security groups, users, IAM roles, KMS, EKS clusters, and node groups are deployed automatically and consistently across AWS accounts.
+
+At the node, pod, and container levels, I would implement the following measures to ensure availability and resiliency for the website:
+	•	Provision Kubernetes clusters and nodes across multiple Availability Zones (and regions where required) to achieve high availability and minimise user latency.
+	•	Create namespaces to separate development, testing, and production environments, and apply resource quota policies to manage team resource usage.
+	•	Configure website deployments with a minimum of two pod replicas to ensure redundancy and availability in the event of node or Availability Zone failures.
+	•	Implement Kubernetes Horizontal Pod Autoscaling to automatically scale workloads based on CPU and memory utilisation, ensuring capacity adjusts to demand.
+	•	Apply Pod anti-affinity rules to ensure that website pods are not scheduled on the same node.
+	•	Apply Node affinity rules to ensure website pods are scheduled only on nodes that meet specific criteria.
+	•	Configure appropriate terminationgraceperiodseconds and prestop hooks to allow pods to shut down gracefully.
+	•	Ensure all website pods use a restartpolicy of always to automatically recover from unexpected failures.
+	•	Configure liveness and readiness probes to ensure traffic is only routed to healthy pods.
+	•	Implement SSL/TLS certificates via ingress controllers to securely expose website services publicly.
+	•	Deploy web services across multiple regions where required, using traffic-routing strategies to minimise latency.
+
+To ensure end-to-end reliability, sufficient monitoring and alerting would be implemented, including:
+	•	Monitoring infrastructure, platform, and application metrics such as traffic, latency, error rates, saturation, node health, and pod performance.
+	•	Capturing telemetry and user-experience metrics (for example, page load times and error rates) to focus on speed, reliability, and responsiveness.
+	•	Define the business level SLA’s, and create and track corresponding SLO’s and SLI’s.
+
+Finally, automated functional and non-functional testing would be integrated into the CI/CD pipeline, including end-to-end tests across all components and dependent services to simulate real user interactions.
 
