@@ -52,7 +52,7 @@ To ensure end-to-end availability, sufficient monitoring and alerting would be i
 - Capturing telemetry and user-experience metrics (for example, page load times and error rates) to focus on speed, reliability, and responsiveness.
 - Define the business level SLA’s, and create and track corresponding SLO’s and SLI’s.
   
-Automate functional and non-functional testing would be integrated into the CI/CD pipeline during releases, including end-to-end tests across all components and dependent services to simulate real user interactions. Ensure deployment and rollback plans are current and tested, perform regular disaster recovery and chaos engineering exercies. 
+Functional and non-functional testing would be automated and integrated into the CI/CD pipeline during releases, including end-to-end tests across all components and dependent services to simulate real user interactions. Ensure deployment and rollback plans are current and tested, perform regular disaster recovery and chaos engineering exercies. 
 
 Finally, have SRE/DevOps teams available to own the deployemnt and operations of the website. Setup an oncall roster to acknowledge, resolve, escalate and handle incidents. Conduct thorough and blameless postmortems and root cause analysis with respective teams to analyse issues, creating plans to address and prevent issues from returning. Implement SRE practises, processes, automation, and tooling to ensure the website remains available, stable and reliable. 
 
