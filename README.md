@@ -14,7 +14,7 @@
 
 What is the purpose of the website, and who are the end users? Design and usability play an important role in ensuring the site meets the user needs. I would improve the overall aesthetics and usability by introducing a more pleasing layout, well-organised menus and headers, and integrating an enterprise search bar that can retrieve results from a secure data source. I would also integrate various forms of digital media and imagery. The website could be further enhanced by integrating a database to present content dynamically.
 
-If I had more time, I would focus my efforts on the design phase to plan the infrastructure, layout, and usability. Once this was complete, I would begin building a minimum viable product (MVP) using technologies such as HTML, PHP or Python, and SQL. For a long-term, mission-critical website, I would set up monitoring to observe metrics and performance during the build and deployment phases. Following deployment, I would iterate and release further enhancements.
+If I had more time, I would focus my efforts on the design phase to plan the infrastructure, layout, and usability. Once this was complete, I would begin building a minimum viable product (MVP) using technologies such as HTML, PHP or Python, and SQL. For a long-term, mission-critical website, I would look to automate the deployment of cloud resources using infrastructure as code (e.g. Terraform) and source code via CI/CD pipelines (e.g. Jenkins). I would include monitoring setup to observe metrics and performance during the build and deployment phases. Following deployment, I would iterate and release further enhancements.
 
 ***Alternative solutions that you could have taken but didn’t and explain why?***
 
@@ -32,7 +32,7 @@ Based on the technical requirements, I chose the AWS S3 approach over the other 
 
 To make the website more production-grade, while also allowing development teams the autonomy to build, deploy, and test safely, I would begin at the AWS account management level by setting up an AWS Landing zone architecture. This would enable teams to build, deploy, and test workloads in isolation, while providing the business with oversight of billing, security controls, and resource limitations.
 
-Following Landing zone setup, the target state of the website would include a multi-availability zone AWS EKS Cluster, leveraging Kubernetes orchestration, scaling, and container management capabilities as default. All infrastructure provisioning would be implemented using Infrastructure as Code (e.g. Terraform) to ensure services such as VPCs, subnets, route tables, NAT gateways, internet gateways, security groups, users, IAM roles, KMS, EKS clusters, and node groups are deployed automatically and consistently across AWS accounts.
+Following Landing zone setup, the target state of the website would include a multi-availability zone AWS EKS Cluster, leveraging Kubernetes orchestration, scaling, and container management capabilities as default. All infrastructure provisioning would be implemented using infrastructure as code (e.g. Terraform) to ensure services such as VPCs, subnets, route tables, NAT gateways, internet gateways, security groups, users, IAM roles, KMS, EKS clusters, and node groups are deployed automatically and consistently across AWS accounts.
 
 At the node, pod, and container levels, I would implement the following measures to ensure availability and resiliency for the website:
 - Provision Kubernetes clusters and nodes across multiple Availability Zones (and regions where required) to achieve high availability and minimise user latency of the wesbite.
@@ -51,6 +51,9 @@ To ensure end-to-end availability, sufficient monitoring and alerting would be i
 - Monitoring infrastructure, platform, and application metrics capturing traffic, latency, logs error, saturation, node health, and pod performance.
 - Capturing telemetry and user-experience metrics (for example, page load times and error rates) to focus on speed, reliability, and responsiveness.
 - Define the business level SLA’s, and create and track corresponding SLO’s and SLI’s.
+  
+Automate functional and non-functional testing would be integrated into the CI/CD pipeline during releases, including end-to-end tests across all components and dependent services to simulate real user interactions. Ensure deployment and rollback plans are current and tested, perform regular disaster recovery and chaos engineering exercies. 
 
-Finally, automated functional and non-functional testing would be integrated into the CI/CD pipeline during releases, including end-to-end tests across all components and dependent services to simulate real user interactions.
+Finally, have SRE/DevOps teams available to own the deployemnt and operations of the website. Setup an oncall roster to acknowledge, resolve, escalate and handle incidents. Conduct thorough and blameless postmortems and root cause analysis with respective teams to analyse issues, creating plans to address and prevent issues from returning. Implement SRE practises, processes, automation, and tooling to ensure the website remains available, stable and reliable. 
+
 
